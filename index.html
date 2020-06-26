@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Music·Playe</title>
+    <link rel="stylesheet" href="music.css">
+    <!-- todo start cssLib-->
+
+</head>
+
+<body>
+    <MusicShower class='music-shower'>
+        <section class="music-volume ">
+            <span>当前声音:</span>
+            <span class="music-volume-log">100%</span>
+        </section>
+        <section class="music-process-show ">
+            <span>歌曲播放进度:</span>
+            <span class="music-play-process ">0%</span>
+        </section>
+    </MusicShower>
+    <MusicContaienr class="Music-contaienr">
+        <div class="music-contaienr">
+            <div class="music-name">
+                <span>世界这么大还是遇见你</span>
+                <span>-程响</span>
+            </div>
+            <div class="music-lrc">
+                <!-- <p class="active">背包塞满青涩的回忆</p>
+                <p >想要踏上成长的旅程</p> -->
+            </div>
+            <div class="music-process-back">
+                <div class="music-process" style="width:0%">
+                </div>
+            </div>
+
+            <div class="music-control-wrapper">
+                <div class="music-btn out-top-colume colume-up">
+                    +
+                </div>
+                <div class="music-btn out-cut-music music-cut-up ">
+                    << </div>
+                        <div class='music-btn music-pause'>
+                            | |
+                        </div>
+                        <div class="music-btn out-cut-music music-cut-down ">
+                            >>
+                        </div>
+                        <div class="music-btn out-top-colume colume-down">
+                            -
+                        </div>
+                </div>
+            </div>
+
+            <div class="music-player">
+                <audio src="./世界这么大还是遇见你.mp3" controls>
+            </audio>
+            </div>
+
+            <section class="music-play-listBtn">
+                >
+            </section>
+            <section class="music-play-list">
+                <ul>
+                    <li class='song-wrap' data-music-description={id:1}>
+                        <div class="song-info">
+                            <span class="col-num">1.</span>
+                            <span class="song-name">世界这么大还是遇见你</span>
+                            <span class='song-author'>程响</span>
+                        </div>
+                        <div class="song-contro">
+
+                            <i class='like' data-defalut-vote=true data-voteNum=0 title="0">喜</i>
+                            <i class="accept">收</i>
+                            <i class="play_self">播</i>
+
+                        </div>
+                    </li>
+                </ul>
+                <div class="playList-scroll">
+                    <div class="scroll-bar default"></div>
+                </div>
+            </section>
+    </MusicContaienr>
+
+
+
+    <script src="./jquery.js"></script>
+    <script src="music.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var music_version = .1
+            var music_version_name = 'SIMPLE MUSIC PLAYER '
+            var music_author = 'Kevin'
+            var author_address = 'Git: https://github.com/Keviniswhite'
+            var author_welcome = '欢迎您的到来！'
+
+            var music_info = {
+                music_version,
+                music_version_name,
+                music_author,
+                author_address,
+            }
+            log(author_welcome)
+            log(music_info)
+        }, false)
+    </script>
+</body>
+
+</html>

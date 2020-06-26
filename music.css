@@ -1,0 +1,332 @@
+:root {
+    --music-main-color: rgb(44, 54, 64);
+    --music-playList-color: #373737;
+    --music-likeSong-color: #ea7fa3;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-image: radial-gradient( #000000, #beaa99, #bba594, #a78365, #4e4e4e);
+    user-select: none;
+}
+
+.music-shower {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.music-volume,
+.music-process-show {
+    width: 15%;
+    padding: 10px;
+    background-color: var(--music-main-color);
+    color: #fff;
+    margin: 0 10px;
+}
+
+.Music-contaienr {
+    position: relative;
+    top: 14%;
+    display: block;
+    width: 350px;
+    max-width: 350px;
+    height: 500px;
+    margin: auto;
+    color: #ccc;
+    text-align: center;
+    padding-top: 80px;
+    background-color: rgb(44, 54, 64);
+    box-shadow: 0px 2px 11px 1px #000;
+}
+
+.volume-animation {
+    animation: _volume_toggle 1s;
+}
+
+@keyframes _volume_toggle {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1
+    }
+}
+
+.music-name {
+    font-size: 12px;
+}
+
+.music-lrc {
+    position: absolute;
+    top: 23%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 55px;
+    overflow: hidden;
+}
+
+.music-lrc p {
+    margin-top: 0;
+    margin-bottom: 3px;
+    font-size: 10px;
+    color: #747474;
+}
+
+.music-lrc .active {
+    font-size: 13px !important;
+    color: #b6b6b6;
+    text-shadow: 0 3px 0 #5d5a54f7;
+}
+
+.music-process-back {
+    position: absolute;
+    width: 100%;
+    background-color: #5d5a54f7;
+    height: 3px;
+    transform: translateY(100px);
+    cursor: pointer;
+    transition: all 1s;
+}
+
+.music-process-back:hover {
+    animation: change_music_process infinite 1s linear;
+}
+
+@keyframes change_music_process {
+    0% {
+        background-color: yellow;
+    }
+    50% {
+        background-color: blue;
+    }
+    100% {
+        background-color: purple;
+    }
+}
+
+.music-process {
+    position: absolute;
+    height: 3px;
+    width: 300px;
+    cursor: pointer;
+    background-color: #E68082;
+}
+
+.music-btn {
+    user-select: none;
+    color: #000;
+    text-shadow: 0px 2px 0px rgb(88, 88, 88), 0px 2px 0px rgb(29, 28, 28);
+    transition: all .3s;
+    cursor: pointer;
+}
+
+.music-btn:active {
+    transform: scale(0.5);
+}
+
+.music-btn:hover {
+    color: #ccc;
+    background-color: rgba(66, 71, 80, 0.19)
+}
+
+.music-control-wrapper {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    margin-top: 200px;
+    box-shadow: inset 0px 0px 5px 0px #000;
+    border-radius: 50% 50%;
+    background-image: linear-gradient(180deg, rgba(71, 63, 63, 0.25), rgb(44, 54, 64));
+    overflow: hidden;
+}
+
+.colume-up {
+    line-height: 50px;
+    border-radius: 10%;
+}
+
+.out-cut-music {
+    position: absolute;
+    line-height: 108px;
+    width: 50px;
+    line-height: 99px;
+    height: 99px;
+}
+
+.music-pause {
+    position: absolute;
+    z-index: 1000;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    border-radius: 50% 50%;
+    left: 50%;
+    margin-left: -50px;
+    transform-origin: center;
+}
+
+.music-cut-up {
+    left: 0;
+}
+
+.music-cut-down {
+    right: 0;
+}
+
+.colume-down {
+    position: absolute;
+    bottom: 0;
+    line-height: 50px;
+    width: 200px;
+}
+
+.music-player {
+    display: none;
+}
+
+
+/* 播放列表 */
+
+.music-play-listBtn {
+    position: absolute;
+    width: 22px;
+    height: 50px;
+    line-height: 50px;
+    background-color: var(--music-main-color);
+    right: 0;
+    top: 50%;
+    transform: translate(36%, -50%);
+    transition: transform .1s;
+    opacity: .9;
+    cursor: pointer;
+    border-radius: 3px;
+    text-shadow: 0 0 2px #ffebeb;
+    z-index: 1;
+}
+
+
+/* 播放列表 */
+
+.music-play-list {
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    right: 0;
+    top: 0;
+    background-color: var(--music-playList-color);
+    z-index: -99;
+}
+
+.music-play-list.self-right-move {
+    animation: self-move .3s forwards;
+}
+
+@keyframes self-move {
+    from {
+        opacity: 0;
+        transform: translateX(0%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(100%);
+        z-index: 0;
+    }
+}
+
+.music-play-list ul {
+    width: 95%;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.music-play-list .playList-scroll,
+.music-play-list ul {
+    position: absolute;
+}
+
+.music-play-list .playList-scroll {
+    right: 0;
+    width: 5%;
+    text-align: center;
+}
+
+.music-play-list .playList-scroll .scroll-bar {
+    display: inline-block;
+    width: 8px;
+    height: 30px;
+    background-color: #ccc;
+    transform: translateY(0px);
+}
+
+.music-play-list .playList-scroll .scroll-bar.default {
+    background-color: #aba7a726
+}
+
+.music-play-list .playList-scroll .scroll-bar.active {
+    background-color: #fff
+}
+
+.music-play-list ul li {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    background-color: var(--music-main-color);
+    height: 50px;
+    text-align: left;
+    cursor: pointer;
+}
+
+.music-play-list .song-info .song-name,
+.music-play-list .song-info .song-author {
+    font-size: 14px;
+}
+
+.music-play-list .song-info .song-name {
+    color: #fff;
+}
+
+.music-play-list .song-info .song-author {
+    color: #eee;
+}
+
+.col-num {
+    color: #c1bdbd;
+}
+
+.music-play-list .song-info,
+.music-play-list .song-contro {
+    font-size: 14px;
+    line-height: 50px;
+}
+
+.music-play-list .song-contro i {
+    font-style: normal;
+    display: inline-block;
+}
+
+.music-play-list .song-contro .like.liked {
+    transform-origin: center;
+    animation: _liked .1s forwards cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+
+@keyframes _liked {
+    0% {
+        transform-origin: center center;
+        transform: rotate(45deg);
+    }
+    50% {
+        color: var(--music-likeSong-color);
+        transform: rotate(0deg);
+    }
+    100% {
+        color: var(--music-likeSong-color);
+        transform: rotate(-45deg);
+    }
+}
