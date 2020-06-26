@@ -1,2 +1,3 @@
 # music_player
-a front dev.
+## 运行图片
+![images](https://github.com/Keviniswhite/music_player/blob/master/%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.png)
